@@ -7,13 +7,16 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Artista plástica con especialización en diseño gráfico egresada de la Universidad Arturo Michelena. Diplomada en diseño de experiencia de usuario e interfaces digitales."
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="name" content="Verónica Mendoza" />
     <title>{title}</title>
   </head>
   <body>
@@ -21,6 +24,9 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
   * {
     /* Include padding and border in size calculation */
     box-sizing: border-box;
@@ -33,6 +39,7 @@ const { title } = Astro.props;
   /* Ensure that the boyd fills the entire viewport */
   body {
     min-height: 100dvh;
+    overscroll-behavior: none;
   }
 
   /* Balance headings across multiple lines into an even block */
