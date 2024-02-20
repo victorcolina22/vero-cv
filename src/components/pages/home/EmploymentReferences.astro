@@ -1,8 +1,12 @@
 ---
+// Components
+import Card from "../../Card.astro";
+
+// Icons
 import BiceVida from "../../icons/BiceVida.astro";
 ---
 
-<section class="2xl:max-w-7xl w-3/4 mx-auto flex flex-col gap-10 mt-52 pb-10">
+<section class="2xl:max-w-7xl w-3/4 mx-auto flex flex-col gap-10 mt-52">
   <div class="text-end">
     <h3 class="text-orange xl:text-[128px] text-[50px] font-caveat-bush">
       ¿Qué dicen de mi?
@@ -12,9 +16,18 @@ import BiceVida from "../../icons/BiceVida.astro";
     </p>
   </div>
 
-  <article class="grid xl:grid-cols-3 md:grid-cols-2 gap-8 mx-auto">
-    <div
-      class="p-5 bg-white border border-orange-light rounded-lg max-w-[352px]"
+  <article class="grid xl:grid-cols-3 md:grid-cols-2 gap-8 mx-auto xl:mt-20">
+    <Card>
+      <BiceVida class="w-32" />
+      <p class="mt-2 text-blue-deep">
+        "Lorem ipsum dolor sit amet consectetur. Tortor imperdiet suspendisse
+        nec a eleifend. Vel aliquam quis ac sit sit imperdiet. Lectus mattis
+        feugiat habitant metus fusce scelerisque iaculis condimentum orci. Vel
+        hac ut tortor sed tortor tempor et."
+      </p>
+    </Card>
+    <Card
+      class="p-5 bg-white border border-orange-light rounded-lg shadow-lg max-w-[352px]"
     >
       <BiceVida class="w-32" />
       <p class="mt-2 text-blue-deep">
@@ -23,9 +36,9 @@ import BiceVida from "../../icons/BiceVida.astro";
         feugiat habitant metus fusce scelerisque iaculis condimentum orci. Vel
         hac ut tortor sed tortor tempor et."
       </p>
-    </div>
-    <div
-      class="p-5 bg-white border border-orange-light rounded-lg max-w-[352px]"
+    </Card>
+    <Card
+      class="p-5 bg-white border border-orange-light rounded-lg shadow-lg max-w-[352px]"
     >
       <BiceVida class="w-32" />
       <p class="mt-2 text-blue-deep">
@@ -34,17 +47,6 @@ import BiceVida from "../../icons/BiceVida.astro";
         feugiat habitant metus fusce scelerisque iaculis condimentum orci. Vel
         hac ut tortor sed tortor tempor et."
       </p>
-    </div>
-    <div
-      class="p-5 bg-white border border-orange-light rounded-lg max-w-[352px]"
-    >
-      <BiceVida class="w-32" />
-      <p class="mt-2 text-blue-deep">
-        "Lorem ipsum dolor sit amet consectetur. Tortor imperdiet suspendisse
-        nec a eleifend. Vel aliquam quis ac sit sit imperdiet. Lectus mattis
-        feugiat habitant metus fusce scelerisque iaculis condimentum orci. Vel
-        hac ut tortor sed tortor tempor et."
-      </p>
-    </div>
+    </Card>
   </article>
 </section>
