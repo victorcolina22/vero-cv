@@ -7,32 +7,40 @@ import SunIcon from "../../icons/SunIcon.astro";
 ---
 
 <Layout title="Vero Mendoza">
-  <section class="pt-[370px]">
+  <section class="pt-[370px] overflow-hidden">
     <div
       class="grid grid-cols-1 grid-rows-[100px_280px_1fr] 2xl:max-w-7xl mx-auto"
     >
       <article
         class="grid grid-cols-1 grid-rows-1 items-center justify-items-center -mt-16"
       >
-        <SunIcon class="col-start-1 row-start-1 w-[50rem] bg-[#FEF1EE]" />
+        <SunIcon
+          class="col-start-1 row-start-1 xl:w-[50rem] w-[38rem] xl:-mt-0 -mt-10 bg-[#FEF1EE]"
+        />
         <img
-          class="object-cover col-start-1 row-start-1 -mt-40 -ml-8 w-[30rem]"
+          class="object-cover col-start-1 row-start-1 -mt-40 -ml-8 xl:w-[30rem] w-[24rem]"
           src="./images/yo.webp"
           alt="yo"
         />
       </article>
 
-      <div class="2xl:max-w-7xl mx-auto z-30">
-        <h2 class="text-[128px] text-orange font-caveat-bush">
+      <div class="2xl:max-w-7xl mx-auto z-30 xl:text-start text-center mt-12">
+        <h2
+          class="xl:text-[128px] text-[64px] text-orange font-caveat-bush xl:leading-normal leading-[50px]"
+        >
           Diseño simple y humano
         </h2>
-        <p class="font-lato text-blue-deep text-[26px] -mt-10 ml-4">
+        <p
+          class="font-lato text-blue-deep xl:text-[26px] text-sm xl:-mt-10 xl:ml-4 mt-5"
+        >
           Veronica Mendoza, Product Designer
         </p>
       </div>
 
-      <div class="flex flex-col 2xl:max-w-7xl gap-5 mx-auto">
-        <p class="text-blue-deep text-xl text-center">
+      <div
+        class="flex flex-col 2xl:max-w-7xl gap-5 xl:mx-auto xl:mt-auto -mt-14"
+      >
+        <p class="text-blue-deep xl:text-xl text-center text-sm">
           Quienes han confiado en mi
         </p>
         <HorizontalScrolling />
