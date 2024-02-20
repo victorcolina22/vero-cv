@@ -12,7 +12,8 @@ export default {
 			},
 			colors: {
 				'orange': '#E35738',
-				'blue-deep': '#4B5594'
+				'blue-deep': '#4B5594',
+				'orange-light': '#EECEC7'
 			},
 			fontFamily: {
 				'caveat-bush': ['Caveat Brush', 'sans-serif'],
