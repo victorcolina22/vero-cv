@@ -1,10 +1,17 @@
 ---
+// Layout
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/pages/Hero.astro";
+
+// Components
+import Hero from "../components/pages/home/Hero.astro";
+import MiloAndMe from "../components/pages/home/MiloAndMe.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Navbar />
-  <Hero />
+  <section class="bg-peach">
+    <Navbar />
+    <Hero />
+    <MiloAndMe />
+  </section>
 </Layout>
