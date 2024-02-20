@@ -3,11 +3,12 @@
 import Layout from "../layouts/Layout.astro";
 
 // Components
+import EmploymentReferences from "../components/pages/home/EmploymentReferences.astro";
+import Experience from "../components/pages/home/Experience.astro";
 import Hero from "../components/pages/home/Hero.astro";
 import MiloAndMe from "../components/pages/home/MiloAndMe.astro";
 import Navbar from "../components/Navbar.astro";
-import EmploymentReferences from "../components/pages/home/EmploymentReferences.astro";
-import Experience from "../components/pages/home/Experience.astro";
+import RecentCases from "../components/pages/home/RecentCases.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -17,5 +18,6 @@ import Experience from "../components/pages/home/Experience.astro";
     <MiloAndMe />
     <EmploymentReferences />
     <Experience />
+    <RecentCases />
   </section>
 </Layout>
