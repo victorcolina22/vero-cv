@@ -1,0 +1,47 @@
+---
+import { fade } from "astro:transitions";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+---
+
+<footer class="w-full mt-56 pt-24 pb-10 px-10">
+  <div
+    class="2xl:max-w-7xl mx-auto grid md:grid-cols-[50px_400px_50px] grid-cols-[150px_150px] items-center justify-center gap-y-5 md:gap-y-0"
+  >
+    <a
+      class="flex flex-col justify-center items-center gap-2 row-start-2 md:row-start-1 hover:scale-110 transition-transform"
+      href="#"
+    >
+      <LinkedinIcon />
+      <p class="text-blue-deep font-lato text-2xl">Linkedin</p>
+    </a>
+    <img
+      class="object-cover justify-self-center col-start-1 col-end-3 md:col-start-2"
+      src="./images/girl_and_dog.webp"
+      alt="Girl and dog"
+    />
+    <a
+      class="flex flex-col justify-center items-center gap-2 col-start-2 row-start-2 md:col-start-3 md:row-start-1 hover:scale-110 transition-transform"
+      href="#"
+    >
+      <InstagramIcon />
+      <p class="text-blue-deep font-lato text-2xl">Instagram</p>
+    </a>
+  </div>
+
+  <p
+    class="2xl:max-w-7xl mx-auto text-blue-deep lg:text-2xl text-sm font-lato font-light text-center mt-10 xl:px-52"
+  >
+    © 2024 Verónica Mendoza. Todas las ilustraciones que viste aquí fueron
+    hechas por mi. El desarrollo web fue realizado por el talentoso
+    <strong class="underline">Victor Colina.</strong>
+  </p>
+</footer>
+
+<style>
+  footer {
+    background-image: url(./images/wave.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
