@@ -1,3 +1,3 @@
 # Vero CV
 
-![Alt text](./public/images/banner.png)
+![Alt text](./public/images/banner.webp)
