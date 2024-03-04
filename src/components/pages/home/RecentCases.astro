@@ -1,44 +1,40 @@
 ---
-import Card from "../../Card.astro";
-import Container from "../../Container.astro";
+import Card from "@/components/Card.astro";
+import Container from "@/components/Container.astro";
 
 // Icons
-import DocumentsIcon from "../../icons/DocumentsIcon.astro";
-import LaptopWithMessage from "../../icons/LaptopWithMessage.astro";
-import OpenLaptopIcon from "../../icons/OpenLaptopIcon.astro";
-
-// TODO: Arreglar color de los íconos
+import ArrowRight from "@/icons/ArrowRight.astro";
+import Text from "@/icons/Text.astro";
 ---
 
 <Container
   class="mt-32 flex flex-col justify-center items-center xl:gap-16 gap-10 xl:px-0 px-10 reveal-up-animation"
 >
   <h3
-    class="text-orange font-caveat-bush xl:text-[128px] text-[50px] xl:text-center xl:self-auto self-start"
+    class="font-gray font-grafie xl:text-[128px] text-[50px] xl:text-center xl:self-auto self-start"
   >
     Casos recientes
   </h3>
 
   <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 xl:mx-auto gap-16">
     <Card class="flex flex-col items-center justify-center gap-5">
-      <!-- <OpenLaptopIcon /> -->
       <img src="./images/open laptop.webp" alt="Open laptop" />
-      <p class="text-[26px] text-orange text-center">Landing My Pyme segura</p>
+      <p class="text-base font-bold text-gray text-center">
+        Landing My Pyme segura
+      </p>
     </Card>
     <Card class="flex flex-col items-center justify-center gap-5">
-      <!-- <DocumentsIcon /> -->
       <img src="./images/docs.webp" alt="Docs" />
-      <p class="text-[26px] text-orange text-center">
+      <p class="text-base font-bold text-gray text-center">
         Formularios de incorporación (Testing)
       </p>
     </Card>
     <Card class="flex flex-col items-center justify-center gap-5">
-      <!-- <LaptopWithMessage /> -->
       <img
         src="./images/laptop with a message.webp"
         alt="Laptop with message"
       />
-      <p class="text-[26px] text-orange text-center">
+      <p class="text-base font-bold text-gray text-center">
         Incorporar Titulares (Sucursal virtual)
       </p>
     </Card>
