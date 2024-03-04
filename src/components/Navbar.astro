@@ -3,42 +3,119 @@ import ChatIcon from "@/icons/ChatIcon.astro";
 import HeartIcon from "@/icons/HeartIcon.astro";
 ---
 
-<header
-  class="lg:block hidden bg-[#FFFFFF1A] shadow-xl px-6 py-7 rounded-xl absolute left-1/2 top-10 -translate-x-1/2 2xl:max-w-7xl w-[60%] z-10"
->
-  <nav class="flex gap-5 items-center justify-between">
-    <li>
-      <a class="flex gap-2 items-center font-caveat-bush group" href="#">
-        <HeartIcon class="group-hover:animate-heart-animation" />
-        <span class="text-[24px] font-grafie text-white-text">Vero Mendoza</span
+<section class="flex justify-center">
+  <header
+    class="lg:block hidden bg-[#FFFFFF1A] shadow-xl px-6 py-7 rounded-xl absolute 2xl:max-w-7xl w-[60%] z-10 mt-10"
+  >
+    <nav class="flex gap-5 items-center justify-between">
+      <li>
+        <a class="flex gap-2 items-center font-caveat-bush group" href="#">
+          <HeartIcon class="group-hover:animate-heart-animation" />
+          <span class="text-[24px] font-grafie text-white-text"
+            >Vero Mendoza</span
+          >
+        </a>
+      </li>
+      <li class="hover:scale-110 hover:transition-transform">
+        <a class="underline font-bold font-lato text-white-text" href="#"
+          >Sobre mi</a
         >
-      </a>
-    </li>
-    <li class="hover:scale-110 hover:transition-transform">
-      <a class="underline font-bold font-lato text-white-text" href="#"
-        >Sobre mi</a
-      >
-    </li>
-    <li class="hover:scale-110 hover:transition-transform">
-      <a class="font-lato text-white-text" href="#">Experiencia</a>
-    </li>
-    <li class="hover:scale-110 hover:transition-transform">
-      <a class="font-lato text-white-text" href="#">Casos recientes</a>
-    </li>
-    <li class="hover:scale-110 hover:transition-transform">
-      <a
-        class="font-lato font-bold bg-[#6167FF] text-white p-2 rounded-md"
-        href="#">¡Hablemos!</a
-      >
-    </li>
-    <li class="hover:scale-110 hover:transition-transform">
-      <a class="font-lato" href="#"><ChatIcon /></a>
-    </li>
-  </nav>
-</header>
+      </li>
+      <li class="hover:scale-110 hover:transition-transform">
+        <a class="font-lato text-white-text" href="#">Experiencia</a>
+      </li>
+      <li class="hover:scale-110 hover:transition-transform">
+        <a class="font-lato text-white-text" href="#">Casos recientes</a>
+      </li>
+      <li class="hover:scale-110 hover:transition-transform">
+        <a
+          class="font-lato font-bold bg-[#6167FF] text-white p-2 rounded-md"
+          href="#">¡Hablemos!</a
+        >
+      </li>
+      <li class="hover:scale-110 hover:transition-transform">
+        <a class="font-lato" href="#"><ChatIcon /></a>
+      </li>
+    </nav>
+  </header>
+</section>
 
 <style>
   li {
     list-style: none;
   }
+
+  .fadeDown {
+    animation: fadeDown 0.5s ease;
+  }
+  .fadeUp {
+    animation: fadeUp 0.5s ease;
+  }
+
+  .bg-gray {
+    background-color: #323231d4;
+  }
+
+  @keyframes fadeDown {
+    from {
+      transform: translateY(-100px);
+    }
+    ,
+    to {
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeUp {
+    from {
+      transform: translateY(0);
+    }
+    ,
+    to {
+      transform: translateY(-100px);
+    }
+  }
 </style>
+
+<script>
+  const header = document.querySelector("header");
+  const hero = document.querySelector(".hero");
+
+  let previusScrollPosition = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollPosition = window.scrollY;
+
+    if (previusScrollPosition > currentScrollPosition) {
+      // Scrolling up
+      header && header.classList.remove("absolute");
+      header && header.classList.add("fixed");
+
+      header && header.classList.add("fadeDown");
+      header && header.classList.remove("fadeUp");
+    } else {
+      // Scrolling down
+      header && header.classList.remove("fixed");
+      header && header.classList.add("absolute");
+
+      header && header.classList.add("fadeUp");
+      header && header.classList.remove("fadeDown");
+    }
+
+    previusScrollPosition = currentScrollPosition;
+  });
+
+  if (hero !== null) {
+    const options = {
+      threshold: 0.05,
+    };
+    const handleEntries = (entries: IntersectionObserverEntry[]) => {
+      const isIntersecting = entries[0].isIntersecting;
+      isIntersecting
+        ? header && header.classList.remove("bg-gray")
+        : header && header.classList.add("bg-gray");
+    };
+
+    const observer = new IntersectionObserver(handleEntries, options);
+    observer.observe(hero);
+  }
+</script>
