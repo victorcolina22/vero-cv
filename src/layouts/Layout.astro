@@ -24,98 +24,99 @@ const { title } = Astro.props;
   </head>
   <body class="bg-white-bg">
     <slot />
-    <style is:global>
-      @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-
-      @font-face {
-        font-family: Grafie;
-        src: url("./fonts/Grafies.otf");
-      }
-
-      * {
-        /* Include padding and border in size calculation */
-        box-sizing: border-box;
-        /* Position based on immediate parent and allow adjusting top/right/bottom/left */
-        position: relative;
-        /* Prevent grid and flex items from spilling out their container */
-        min-width: 0;
-      }
-
-      /* Ensure that the boyd fills the entire viewport */
-      body {
-        min-height: 100dvh;
-        overscroll-behavior: none;
-      }
-
-      /* Balance headings across multiple lines into an even block */
-      h1,
-      h2,
-      h3,
-      h4 {
-        text-wrap: balance;
-      }
-
-      /* Prevent text orphans (single words on last line) */
-      p {
-        text-wrap: pretty;
-      }
-
-      .reveal-up-animation {
-        animation: linear_reveal_up;
-        animation-range: entry 5% cover 30% !important;
-        animation-timeline: view();
-      }
-      .reveal-right-animation {
-        animation: linear_reveal_right;
-        animation-range: entry 5% cover 30% !important;
-        animation-timeline: view();
-      }
-      .reveal-left-animation {
-        animation: linear_reveal_left;
-        animation-range: entry 5% cover 30% !important;
-        animation-timeline: view();
-      }
-
-      @keyframes linear_reveal_up {
-        from {
-          opacity: 0;
-          translate: 0 100px;
-        }
-        50% {
-          opacity: 0.1;
-        }
-        to {
-          opacity: 1;
-          translate: 0 0;
-        }
-      }
-      @keyframes linear_reveal_right {
-        from {
-          opacity: 0;
-          translate: 100px 0;
-        }
-        50% {
-          opacity: 0.1;
-        }
-        to {
-          opacity: 1;
-          translate: 0 0;
-        }
-      }
-      @keyframes linear_reveal_left {
-        from {
-          opacity: 0;
-          translate: -100px 0;
-        }
-        50% {
-          opacity: 0.1;
-        }
-        to {
-          opacity: 1;
-          translate: 0 0;
-        }
-      }
-    </style>
   </body>
 </html>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+  @font-face {
+    font-family: Grafie;
+    src: url("./fonts/Grafies.otf");
+  }
+
+  * {
+    /* Include padding and border in size calculation */
+    box-sizing: border-box;
+    /* Position based on immediate parent and allow adjusting top/right/bottom/left */
+    position: relative;
+    /* Prevent grid and flex items from spilling out their container */
+    min-width: 0;
+  }
+
+  /* Ensure that the boyd fills the entire viewport */
+  body {
+    min-height: 100dvh;
+    overscroll-behavior: none;
+  }
+
+  /* Balance headings across multiple lines into an even block */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* Prevent text orphans (single words on last line) */
+  p {
+    text-wrap: pretty;
+  }
+
+  .reveal-up-animation {
+    animation: linear_reveal_up;
+    animation-range: entry 5% cover 30% !important;
+    animation-timeline: view();
+  }
+  .reveal-right-animation {
+    animation: linear_reveal_right;
+    animation-range: entry 5% cover 30% !important;
+    animation-timeline: view();
+  }
+  .reveal-left-animation {
+    animation: linear_reveal_left;
+    animation-range: entry 5% cover 30% !important;
+    animation-timeline: view();
+  }
+
+  @keyframes linear_reveal_up {
+    from {
+      opacity: 0;
+      translate: 0 100px;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  @keyframes linear_reveal_right {
+    from {
+      opacity: 0;
+      translate: 100px 0;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  @keyframes linear_reveal_left {
+    from {
+      opacity: 0;
+      translate: -100px 0;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+</style>
