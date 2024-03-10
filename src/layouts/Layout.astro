@@ -1,4 +1,7 @@
 ---
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar.astro";
+
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 interface Props {
@@ -23,7 +26,9 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-white-bg">
+    <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
 
@@ -46,7 +51,7 @@ const { title } = Astro.props;
   }
 
   /* Ensure that the boyd fills the entire viewport */
-  body {
+  html, body {
     min-height: 100dvh;
     overscroll-behavior: none;
   }

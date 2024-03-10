@@ -10,7 +10,8 @@ export default {
 			backgroundColor: {
 				'peach': '#FEF1EE',
 				'white': '#FFFFFF',
-				'white-bg': '#F3F0ED'
+				'white-bg': '#F3F0ED',
+				'gray-bg': '#323231'
 			},
 			colors: {
 				'orange': '#E35738',

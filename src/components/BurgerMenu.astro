@@ -1,0 +1,58 @@
+<label class="menu">
+  <input class={Astro.props.class} type="checkbox" />
+</label>
+
+<style>
+  :root {
+    --bar-width: 40px;
+    --bar-height: 5px;
+    --bar-gap: 5px;
+    --bar-color: #f5f0ed;
+    --menu-height: calc(var(--bar-height) * 3 + var(--bar-gap) * 2);
+    --animation-timing: 0.2s;
+  }
+
+  .menu {
+    --x-width: calc(var(--menu-height) * 1.41421356237);
+    display: flex;
+    flex-direction: column;
+    gap: var(--bar-gap);
+    z-index: 20;
+  }
+
+  .menu::before,
+  .menu::after,
+  .menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--bar-color);
+    border-radius: 100px;
+    transform-origin: left center;
+    transition:
+      opacity var(--animation-timing),
+      width var(--animation-timing),
+      rotate var(--animation-timing),
+      translate var(--animation-timing);
+  }
+
+  .menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+  }
+  .menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+  }
+
+  .menu input {
+    appearance: none;
+    pointer-events: none;
+  }
+
+  .menu input:checked {
+    opacity: 0;
+  }
+</style>

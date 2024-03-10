@@ -1,15 +1,20 @@
 ---
 import ChatIcon from "@/icons/ChatIcon.astro";
 import HeartIcon from "@/icons/HeartIcon.astro";
+import BurgerMenu from "@/components/BurgerMenu.astro";
 ---
 
 <section class="flex justify-center">
+  <!-- Desktop -->
   <header
     class="lg:block hidden bg-[#FFFFFF1A] shadow-xl px-6 py-7 rounded-xl absolute 2xl:max-w-7xl w-[60%] z-10 mt-10"
   >
     <nav class="flex gap-5 items-center justify-between">
       <li>
-        <a class="flex gap-2 items-center font-caveat-bush group" href="#">
+        <a
+          class="nav-link flex gap-2 items-center font-caveat-bush group"
+          href="#hero"
+        >
           <HeartIcon class="group-hover:animate-heart-animation" />
           <span class="text-[24px] font-grafie text-white-text"
             >Vero Mendoza</span
@@ -17,13 +22,19 @@ import HeartIcon from "@/icons/HeartIcon.astro";
         </a>
       </li>
       <li class="hover:scale-110 hover:transition-transform">
-        <a class="font-lato text-white-text" href="#">Sobre mi</a>
+        <a class="nav-link font-lato text-white-text" href="#aboutme"
+          >Sobre mi</a
+        >
       </li>
       <li class="hover:scale-110 hover:transition-transform">
-        <a class="font-lato text-white-text" href="#">Experiencia</a>
+        <a class="nav-link font-lato text-white-text" href="#experience"
+          >Experiencia</a
+        >
       </li>
       <li class="hover:scale-110 hover:transition-transform">
-        <a class="font-lato text-white-text" href="#">Casos recientes</a>
+        <a class="nav-link font-lato text-white-text" href="#cases"
+          >Casos recientes</a
+        >
       </li>
       <li class="hover:scale-110 hover:transition-transform">
         <a
@@ -36,6 +47,52 @@ import HeartIcon from "@/icons/HeartIcon.astro";
       </li>
     </nav>
   </header>
+
+  <!-- Mobile -->
+  <nav class="nav-mobile lg:hidden w-full absolute z-10">
+    <div class="flex items-center justify-between p-5 bg-gray-bg">
+      <a
+        class="nav-link flex gap-2 items-center font-caveat-bush group z-10"
+        href="#hero"
+      >
+        <HeartIcon class="group-hover:animate-heart-animation" />
+        <span class="text-[24px] font-grafie text-white-text">Vero Mendoza</span
+        >
+      </a>
+      <BurgerMenu class="burger-menu" />
+    </div>
+    <article
+      class="opacity-0 w-full h-screen bg-gray-bg absolute top-0 transition-opacity"
+    >
+      <ul class="flex flex-col justify-center items-center gap-16 h-full">
+        <li class="hover:scale-110 hover:transition-transform">
+          <a class="mobile nav-link font-lato text-white-text" href="#aboutme"
+            >Sobre mi</a
+          >
+        </li>
+        <li class="hover:scale-110 hover:transition-transform">
+          <a
+            class="mobile nav-link font-lato text-white-text"
+            href="#experience">Experiencia</a
+          >
+        </li>
+        <li class="hover:scale-110 hover:transition-transform">
+          <a class="mobile nav-link font-lato text-white-text" href="#cases"
+            >Casos recientes</a
+          >
+        </li>
+        <li class="hover:scale-110 hover:transition-transform">
+          <a
+            class="font-lato font-bold bg-[#6167FF] text-white p-2 rounded-md"
+            href="#">¡Hablemos!</a
+          >
+        </li>
+        <li class="hover:scale-110 hover:transition-transform">
+          <a class="font-lato" href="#"><ChatIcon /></a>
+        </li>
+      </ul>
+    </article>
+  </nav>
 </section>
 
 <style>
@@ -75,7 +132,26 @@ import HeartIcon from "@/icons/HeartIcon.astro";
 </style>
 
 <script>
+  // Navigation to elements
+  window.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((navLink) => {
+      navLink.addEventListener("click", function (this: any, e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+  });
+
+  // Handle scrolling
   const header = document.querySelector("header");
+  const headerMobile = document.querySelector(".nav-mobile");
   const hero = document.querySelector(".hero");
 
   let previusScrollPosition = window.scrollY;
@@ -90,6 +166,12 @@ import HeartIcon from "@/icons/HeartIcon.astro";
 
       header && header.classList.add("fadeDown");
       header && header.classList.remove("fadeUp");
+
+      headerMobile && headerMobile.classList.remove("absolute");
+      headerMobile && headerMobile.classList.add("fixed");
+
+      headerMobile && headerMobile.classList.add("fadeDown");
+      headerMobile && headerMobile.classList.remove("fadeUp");
     } else {
       // Scrolling down
       header && header.classList.remove("fixed");
@@ -97,6 +179,12 @@ import HeartIcon from "@/icons/HeartIcon.astro";
 
       header && header.classList.add("fadeUp");
       header && header.classList.remove("fadeDown");
+
+      headerMobile && headerMobile.classList.remove("fixed");
+      headerMobile && headerMobile.classList.add("absolute");
+
+      headerMobile && headerMobile.classList.add("fadeUp");
+      headerMobile && headerMobile.classList.remove("fadeDown");
     }
 
     previusScrollPosition = currentScrollPosition;
@@ -116,4 +204,28 @@ import HeartIcon from "@/icons/HeartIcon.astro";
     const observer = new IntersectionObserver(handleEntries, options);
     observer.observe(hero);
   }
+
+  // Mobile navbar
+  const burgerMenu: any = document.querySelector(".burger-menu");
+  const menu = document.querySelector("article");
+  const links = document.querySelectorAll(".mobile");
+
+  burgerMenu?.addEventListener("click", (e: any) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      menu?.classList.remove("opacity-0");
+      menu?.classList.add("opacity-1");
+    } else {
+      menu?.classList.remove("opacity-1");
+      menu?.classList.add("opacity-0");
+    }
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      burgerMenu.checked = false;
+      menu?.classList.remove("opacity-1");
+      menu?.classList.add("opacity-0");
+    });
+  });
 </script>
